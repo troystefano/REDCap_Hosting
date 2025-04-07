@@ -1,0 +1,78 @@
+<svg width="300" height="40" viewBox="0 0 300 40" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Overall SVG size: 300 x 40.
+    The bar is placed at y=11 and has a height of 18, leaving 11px above and below for balance.
+  -->
+
+  <defs>
+    <!-- Gradient for the background of the bar -->
+    <linearGradient id="barBackgroundGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f9f9f9" />
+      <stop offset="100%" stop-color="#e9ecef" />
+    </linearGradient>
+
+    <!-- Gradient for the progress fill -->
+    <linearGradient id="progressGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1890ff" />
+      <stop offset="100%" stop-color="#0f5bb5" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background rectangle for the progress bar -->
+  <!--
+       - Positioned at (0,11) to center it vertically within the 40px height.
+       - Width: 300, Height: 18
+       - Rounded corners (rx=4, ry=4)
+       - Filled with the subtle gradient, plus a soft stroke.
+  -->
+  <rect
+    x="0"
+    y="11"
+    width="300"
+    height="18"
+    rx="4"
+    ry="4"
+    fill="url(#barBackgroundGradient)"
+    stroke="#ccc"
+    stroke-width="1"
+  />
+
+  <!-- Progress fill for 58% progress (174px wide) -->
+  <!--
+       - This path is shifted down by 11px (all y-coordinates are +11 from the original).
+       - Rounds only the left corners via arc commands (A4,4).
+       - Uses a subtle stroke (#0f5bb5) around the gradient fill.
+  -->
+  <path
+    d="M4,11
+       L174,11
+       L174,29
+       L4,29
+       A4,4 0 0 1 0,25
+       L0,15
+       A4,4 0 0 1 4,11
+       Z"
+    fill="url(#progressGradient)"
+    stroke="#0f5bb5"
+    stroke-width="0.5"
+  />
+
+  <!-- Centered progress text ("58%") -->
+  <!--
+       - Placed at x=150 (half of 300) for horizontal center.
+       - Placed at y=20, the vertical midpoint of the bar's area (11 + 18/2 = 20).
+       - alignment-baseline="middle" and text-anchor="middle" ensure it is visually centered.
+       - font-size=14 and fill="#444" for a balanced, readable look.
+  -->
+  <text
+    x="150"
+    y="20"
+    text-anchor="middle"
+    alignment-baseline="middle"
+    fill="#444"
+    font-size="10"
+    font-weight="bold"
+  >
+    58%
+  </text>
+</svg>
